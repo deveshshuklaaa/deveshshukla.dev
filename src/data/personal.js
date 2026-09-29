@@ -1,13 +1,14 @@
 export const personalInfo = {
   name: 'Devesh Shukla',
   title: 'Software & AI/ML Developer',
-  subtitle: 'Computer Engineering student building reliable software, backend architectures, applied computer vision, and IoT systems.',
+  tagline: 'Computer Engineering student building reliable backend systems, applied computer vision pipelines, and connected IoT architectures.',
   college: 'K. J. Somaiya Institute of Technology, Mumbai',
   degree: 'Bachelor of Technology (B.Tech) in Information Technology',
-  cgpa: '9.0',
+  cgpa: '9.0 / 10.0',
   graduationYear: '2026',
   location: 'Mumbai, India',
-  status: 'Open to Software Engineering roles & ML/systems internships',
+  status: 'Open to Software Engineering Roles & ML/Systems Internships',
+  graduationDetail: 'Expected Graduation: 2026 • Available for Full-Time Roles & Internships',
   email: 'deveshshukla152005@gmail.com',
   github: 'https://github.com/deveshshuklaaa',
   linkedin: 'https://www.linkedin.com/in/devesh-shukla-152864380/',
@@ -15,22 +16,36 @@ export const personalInfo = {
   resumeUrl: '/devesh-shukla-resume.pdf',
   about: {
     summary:
-      'I am an engineering student with a strong focus on building dependable software and applied machine learning systems. Rather than viewing machine learning or software engineering as isolated disciplines, I enjoy working at their intersection—from training pose-estimation models and building low-latency computer vision pipelines to architecting relational databases and deploying containerized services.',
+      'I am an Information Technology student at K. J. Somaiya Institute of Technology with a strong foundation in computer science and practical software engineering. My work focuses on building dependable systems across the stack: from architecting normalized PostgreSQL schemas and REST APIs in Django, to training temporal neural networks (LSTM) for biomechanical movement analysis, and programming ESP32 microcontrollers for real-time edge telemetry.',
+    coreCompetencies: [
+      {
+        area: 'Backend & Systems',
+        highlight: 'RESTful API architecture, relational database design (PostgreSQL, MySQL), ACID transactions, and containerized deployment with Docker.',
+      },
+      {
+        area: 'Applied Machine Learning & Vision',
+        highlight: 'Pose landmark kinematics, temporal sequence modeling with PyTorch LSTMs, YOLO detection, and zero-leakage evaluation protocols (LOSO).',
+      },
+      {
+        area: 'IoT & Embedded Engineering',
+        highlight: 'ESP32 firmware in C++, multi-sensor acquisition (ADC/I2C), sub-second MQTT telemetry streaming, and edge computation.',
+      },
+    ],
     philosophy: [
       {
         title: 'Rigorous Empirical Validation',
         description:
-          'In machine learning and data modeling, benchmark validity matters. I rely on strict subject-aware evaluation (such as Leave-One-Subject-Out cross-validation) to avoid data leakage and report honest, verifiable metrics.',
+          'In applied ML and data modeling, benchmark credibility comes first. I use strict subject-aware cross-validation (Leave-One-Subject-Out) to eliminate inter-subject leakage and report honest, defensible metrics rather than cherry-picked numbers.',
       },
       {
-        title: 'Systems & Architecture First',
+        title: 'Architectural Correctness & Reliability',
         description:
-          'Whether structuring Django REST APIs or connecting ESP32 microcontrollers over MQTT, I prioritize clean interfaces, relational consistency, containerization, and low latency.',
+          'Whether designing database tables for multi-item inventory billing or managing container lifecycle via Docker APIs, I enforce strong schema boundaries, transaction atomicity, and container isolation.',
       },
       {
-        title: 'End-to-End Execution',
+        title: 'End-to-End Ownership',
         description:
-          'I value ownership across the lifecycle: from sensor acquisition and edge firmware to backend services, modern user interfaces, and automated CI/CD pipelines.',
+          'I build across the complete product lifecycle: sensor hardware firmware, cloud protocols, backend business logic, responsive web interfaces, and automated CI/CD deployment pipelines.',
       },
     ],
   },

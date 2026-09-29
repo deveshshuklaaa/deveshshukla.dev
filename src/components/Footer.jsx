@@ -24,9 +24,9 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="footer-link"
-              aria-label="GitHub"
+              aria-label="GitHub Profile"
             >
-              <Icon name="github" size={17} />
+              <Icon name="github" size={16} />
               <span>GitHub</span>
             </a>
             <a
@@ -34,9 +34,9 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="footer-link"
-              aria-label="LinkedIn"
+              aria-label="LinkedIn Profile"
             >
-              <Icon name="linkedin" size={17} />
+              <Icon name="linkedin" size={16} />
               <span>LinkedIn</span>
             </a>
             <a
@@ -44,17 +44,27 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="footer-link"
-              aria-label="LeetCode"
+              aria-label="LeetCode Profile"
             >
-              <Icon name="leetcode" size={17} />
+              <Icon name="leetcode" size={16} />
               <span>LeetCode</span>
+            </a>
+            <a
+              href={personalInfo.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-link"
+              aria-label="Resume PDF"
+            >
+              <Icon name="fileText" size={16} />
+              <span>Resume</span>
             </a>
             <a
               href={`mailto:${personalInfo.email}`}
               className="footer-link"
-              aria-label="Email"
+              aria-label="Send Email"
             >
-              <Icon name="mail" size={17} />
+              <Icon name="mail" size={16} />
               <span>Email</span>
             </a>
           </div>
@@ -66,16 +76,20 @@ export default function Footer() {
             aria-label="Back to top of page"
           >
             <span>Top</span>
-            <Icon name="arrowUp" size={15} />
+            <Icon name="arrowUp" size={14} />
           </button>
         </div>
 
         <div className="site-footer__bottom">
           <p className="copyright">
-            © {new Date().getFullYear()} {personalInfo.name}. Designed & built with React and Vite.
+            © {new Date().getFullYear()} {personalInfo.name}. Designed & engineered with React 19 + Vite.
           </p>
           <p className="deployment-note">
-            Deployed to <a href="https://deveshshukla.dev" className="code-link">deveshshukla.dev</a> via GitHub Pages.
+            Production build deployed to{' '}
+            <a href="https://deveshshukla.dev" className="code-link">
+              deveshshukla.dev
+            </a>{' '}
+            via GitHub Pages.
           </p>
         </div>
       </div>

@@ -6,10 +6,10 @@ export default function Education() {
     <section className="section" id="education">
       <div className="section-container">
         <div className="section-header">
-          <span className="section-eyebrow">Academic & Practical Track Record</span>
-          <h2 className="section-title">Education & Experience</h2>
+          <span className="section-eyebrow">Academic & Practical Foundation</span>
+          <h2 className="section-title">Education & Internship Experience</h2>
           <p className="section-subtitle">
-            Strong foundational computer science training combined with hands-on software development.
+            Strong theoretical computer science coursework paired with hands-on software development in institutional environments.
           </p>
         </div>
 
@@ -36,9 +36,10 @@ export default function Education() {
                     <Icon name="mapPin" size={14} />
                     <span>{edu.institution}, {edu.location}</span>
                   </p>
+                  <p className="timeline-status-sub">{edu.status}</p>
 
                   <ul className="timeline-details">
-                    {edu.details.map((item, dIdx) => (
+                    {edu.highlights.map((item, dIdx) => (
                       <li key={dIdx} className="timeline-bullet">
                         <span className="bullet">›</span>
                         <span>{item}</span>
@@ -56,7 +57,7 @@ export default function Education() {
               <div className="timeline-header-icon">
                 <Icon name="briefcase" size={20} />
               </div>
-              <h3 className="timeline-column__title">Experience & Internship</h3>
+              <h3 className="timeline-column__title">Work Experience</h3>
             </div>
 
             <div className="timeline-cards">
@@ -74,7 +75,7 @@ export default function Education() {
                   </p>
 
                   <ul className="timeline-details">
-                    {exp.details.map((item, dIdx) => (
+                    {exp.highlights.map((item, dIdx) => (
                       <li key={dIdx} className="timeline-bullet">
                         <span className="bullet">›</span>
                         <span>{item}</span>

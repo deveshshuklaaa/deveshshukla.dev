@@ -1,15 +1,17 @@
 import { skillCategories } from '../data/skills'
 import Badge from '../components/Badge'
+import Icon from '../components/Icon'
+import { personalInfo } from '../data/personal'
 
 export default function Skills() {
   return (
     <section className="section" id="skills">
       <div className="section-container">
         <div className="section-header">
-          <span className="section-eyebrow">Technical Capability</span>
+          <span className="section-eyebrow">Technical Capabilities</span>
           <h2 className="section-title">Skills & Tech Stack</h2>
           <p className="section-subtitle">
-            Tools, technologies, and frameworks used across production-style systems, ML pipelines, and embedded hardware.
+            Languages, frameworks, systems infrastructure, and theoretical fundamentals applied across academic capstones and software projects.
           </p>
         </div>
 
@@ -26,13 +28,37 @@ export default function Skills() {
                   <div key={skill.name} className="skill-item">
                     <span className="skill-name">{skill.name}</span>
                     <Badge variant="subtle" size="xs">
-                      {skill.level}
+                      {skill.context}
                     </Badge>
                   </div>
                 ))}
               </div>
             </div>
           ))}
+        </div>
+
+        {/* LeetCode & Problem Solving Banner */}
+        <div className="skills-footnote-banner">
+          <div className="footnote-banner__content">
+            <div className="footnote-banner__icon">
+              <Icon name="code" size={20} />
+            </div>
+            <div>
+              <span className="footnote-banner__title">Data Structures & Algorithm Problem Solving</span>
+              <p className="footnote-banner__desc">
+                Active problem solver practicing algorithmic challenges on LeetCode covering dynamic programming, graph traversal, and arrays/trees.
+              </p>
+            </div>
+          </div>
+          <a
+            href={personalInfo.leetcode}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn--outline btn--sm"
+          >
+            <span>View LeetCode Profile</span>
+            <Icon name="arrowUpRight" size={14} />
+          </a>
         </div>
       </div>
     </section>
