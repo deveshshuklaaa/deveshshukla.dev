@@ -1645,3 +1645,34 @@
     align-items: flex-start;
   }
 }
+
+@media (max-width: 480px) {
+  .site-header__actions .action-icon-btn {
+    display: none;
+  }
+
+  .contact-card {
+    padding: 24px 18px;
+  }
+
+  .contact-main,
+  .contact-meta,
+  .about-text-column,
+  .about-principles-column,
+  .email-display span {
+    min-width: 0;
+  }
+
+  .email-display span {
+    overflow-wrap: anywhere;
+  }
+
+  .contact-actions-row .btn {
+    white-space: normal;
+  }
+
+  .about-cta-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

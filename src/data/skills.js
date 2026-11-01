@@ -38,14 +38,14 @@ export const skillCategories = [
     ],
   },
   {
-    category: 'IoT & Embedded Systems',
-    description: 'Microcontroller firmware, edge computing, and real-time telemetry protocols.',
+    category: 'Embedded Systems & Hardware Control',
+    description: 'Microcontroller firmware and vision-guided pump actuation in SmartSpray.',
     skills: [
       { name: 'ESP32 Microcontrollers', context: 'Hardware Target' },
-      { name: 'MQTT Protocol', context: 'Lightweight Pub/Sub' },
-      { name: 'Sensor Acquisition (I2C/ADC)', context: 'Telemetry' },
-      { name: 'C++ Firmware', context: 'Edge Compute' },
-      { name: 'Firebase Realtime Database', context: 'Cloud Sync' },
+      { name: 'C++ Firmware', context: 'Hardware Control' },
+      { name: 'PWM Pump Control', context: 'Actuation' },
+      { name: 'Serial Communication', context: 'Command Bridge' },
+      { name: 'Hardware Safety Timeouts', context: 'Pump Cutoffs' },
     ],
   },
   {

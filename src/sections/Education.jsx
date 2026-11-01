@@ -28,24 +28,14 @@ export default function Education() {
                 <div key={idx} className="timeline-card">
                   <div className="timeline-card__top">
                     <span className="timeline-period">{edu.period}</span>
-                    <span className="timeline-badge">{edu.score}</span>
                   </div>
 
-                  <h4 className="timeline-role">{edu.degree}</h4>
+                  <h4 className="timeline-role">{edu.degree}, {edu.fieldOfStudy}</h4>
                   <p className="timeline-org">
                     <Icon name="mapPin" size={14} />
                     <span>{edu.institution}, {edu.location}</span>
                   </p>
                   <p className="timeline-status-sub">{edu.status}</p>
-
-                  <ul className="timeline-details">
-                    {edu.highlights.map((item, dIdx) => (
-                      <li key={dIdx} className="timeline-bullet">
-                        <span className="bullet">›</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
               ))}
             </div>

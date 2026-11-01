@@ -111,43 +111,6 @@ export const projects = [
     technologies: ['YOLO', 'PyTorch', 'OpenCV', 'FastAPI', 'Flutter', 'ESP32', 'Python'],
   },
   {
-    id: 'pura-air',
-    title: 'PURA AIR',
-    tagline: 'Edge-to-Cloud IoT Air Quality Telemetry & AQI Forecasting',
-    category: 'IoT & Embedded Systems',
-    filterTag: 'iot',
-    featured: true,
-    repoUrl: null,
-    status: 'Functional Hardware Rig / Academic Project',
-    problem:
-      'Urban and indoor air quality fluctuates rapidly, but commercial monitors often lack localized sub-index computation, low-latency telemetry streaming, and automated predictive alerts for acute pollution spikes.',
-    whatBuilt:
-      'An IoT environmental sensing platform powered by ESP32 microcontrollers, acquiring multi-sensor data (particulate matter PM2.5/PM10, CO₂, temperature, humidity), streaming telemetry over MQTT to Firebase, and visualizing trends in real time.',
-    keyDecisions: [
-      {
-        decision: 'Edge AQI Sub-Index Calculation',
-        rationale:
-          'Calculated standard air quality sub-indices directly within ESP32 C++ firmware so the hardware can issue immediate local acoustic/LED alerts even if cloud connectivity drops.',
-      },
-      {
-        decision: 'Lightweight MQTT Protocol vs HTTP Polling',
-        rationale:
-          'Minimised packet headers and power consumption on the microcontroller by using pub/sub MQTT telemetry instead of heavy HTTP REST calls.',
-      },
-      {
-        decision: 'Python Time-Series Analytics & Forecasting',
-        rationale:
-          'Ingested telemetry in Python to compute rolling averages and short-term trend regression, predicting particulate accumulation trends.',
-      },
-    ],
-    metric: {
-      label: 'Telemetry Performance',
-      value: 'Continuous sub-second sensor acquisition, MQTT telemetry broadcast, and real-time cloud sync with automated threshold triggers.',
-      qualification: 'Deployed on prototype ESP32 test rig with physical sensor array.',
-    },
-    technologies: ['ESP32', 'C++', 'IoT', 'MQTT', 'Firebase', 'Python'],
-  },
-  {
     id: 'cyberlabx',
     title: 'CyberLabX',
     tagline: 'Virtual Cybersecurity Sandbox with Dynamic Container Lifecycle Provisioning',

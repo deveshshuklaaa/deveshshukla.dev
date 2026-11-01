@@ -21,10 +21,10 @@ export default function Hero() {
         </div>
 
         <p className="hero-summary">
-          Information Technology student at{' '}
-          <strong className="text-highlight">{personalInfo.college}</strong> (CGPA: {personalInfo.cgpa}).
+          {personalInfo.fieldOfStudy} student at{' '}
+          <strong className="text-highlight">{personalInfo.college}</strong> in Mumbai.
           Specializing in backend architectures with strict data integrity, applied machine learning pipelines
-          evaluated on zero-leakage protocols, and low-latency edge telemetry systems.
+          evaluated on zero-leakage protocols, and vision-guided embedded hardware control.
         </p>
 
         {/* Quick Action CTAs */}
@@ -78,9 +78,9 @@ export default function Hero() {
               <Icon name="layers" size={18} />
             </div>
             <div className="domain-card__body">
-              <h3 className="domain-card__title">IoT & Telemetry</h3>
-              <p className="domain-card__tech">ESP32, C++ Firmware, MQTT, Firebase</p>
-              <p className="domain-card__note">Edge sensor acquisition, AQI logic & sub-second streaming</p>
+              <h3 className="domain-card__title">Embedded Systems & Hardware Control</h3>
+              <p className="domain-card__tech">ESP32, C++ Firmware, FastAPI, PWM</p>
+              <p className="domain-card__note">SmartSpray pump control, serial coordination & hardware safety timeouts</p>
             </div>
           </div>
 
@@ -89,9 +89,9 @@ export default function Hero() {
               <Icon name="graduationCap" size={18} />
             </div>
             <div className="domain-card__body">
-              <h3 className="domain-card__title">Academic Excellence</h3>
-              <p className="domain-card__tech">9.0 / 10.0 CGPA • B.Tech IT</p>
-              <p className="domain-card__note">K. J. Somaiya Institute of Technology, Mumbai</p>
+              <h3 className="domain-card__title">Academic Background</h3>
+              <p className="domain-card__tech">{personalInfo.degree}</p>
+              <p className="domain-card__note">{personalInfo.educationStatus}</p>
             </div>
           </div>
         </div>

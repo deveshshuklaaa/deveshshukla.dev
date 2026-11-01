@@ -12,7 +12,6 @@ A fast, lightweight, and responsive developer portfolio engineered with a focus 
 
 - **Haemophilia Exercise Analysis**: Pose-derived kinematic feature extraction, temporal modeling (LSTM), and strict Leave-One-Subject-Out (LOSO) evaluation.
 - **StockBill**: Full-stack FMCG inventory and billing software (Django REST Framework, React, PostgreSQL, Docker).
-- **PURA AIR**: IoT air-quality monitoring system with ESP32 sensor acquisition, edge AQI computation, and MQTT telemetry.
 - **SmartSpray**: AI-assisted agricultural spraying prototype combining YOLO detection, FastAPI, and ESP32 pump control with tri-modal operation.
 - **CyberLabX**: Virtual cybersecurity laboratory with dynamic Docker challenge provisioning via dockerode.
 

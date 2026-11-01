@@ -29,7 +29,7 @@ export default function Contact() {
           <div className="contact-main">
             <h3 className="contact-heading">Direct Inquiry</h3>
             <p className="contact-subheading">
-              Whether you are discussing full-time engineering openings for the 2026 cohort, technical collaborations, or want to discuss my featured systems, feel free to reach out directly.
+              Whether you are discussing engineering opportunities for the Class of {personalInfo.graduationYear}, technical collaborations, or want to discuss my featured systems, feel free to reach out directly.
             </p>
 
             <div className="contact-email-row">
@@ -75,7 +75,7 @@ export default function Contact() {
 
             <div className="contact-status-note">
               <span className="status-dot"></span>
-              <span>Available for 2026 full-time software engineering roles & technical internships</span>
+              <span>{personalInfo.graduationDetail}</span>
             </div>
           </div>
 

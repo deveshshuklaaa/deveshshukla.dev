@@ -17,12 +17,7 @@ export default function Projects() {
       label: 'Full-Stack & Systems',
       count: projects.filter((p) => p.filterTag === 'fullstack').length,
     },
-    {
-      id: 'iot',
-      label: 'IoT & Embedded',
-      count: projects.filter((p) => p.filterTag === 'iot').length,
-    },
-  ]
+  ].filter((option) => option.count > 0)
 
   const filteredProjects = projects.filter((project) => {
     if (filter === 'all') return true
@@ -36,7 +31,7 @@ export default function Projects() {
           <span className="section-eyebrow">Technical Portfolio</span>
           <h2 className="section-title">Featured Projects & Systems</h2>
           <p className="section-subtitle">
-            Engineered systems demonstrating relational data modeling, temporal deep learning architectures, microcontroller telemetry, and containerized deployment.
+            Engineered systems demonstrating relational data modeling, temporal deep learning architectures, embedded hardware control, and containerized deployment.
           </p>
         </div>
 

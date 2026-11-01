@@ -2,15 +2,12 @@ export const educationData = [
   {
     institution: 'K. J. Somaiya Institute of Technology',
     location: 'Mumbai, India',
-    degree: 'Bachelor of Technology (B.Tech) in Information Technology',
-    period: '2022 — 2026',
-    score: 'CGPA: 9.0 / 10.0',
-    status: 'Final Year Student (Graduating 2026)',
-    highlights: [
-      'Top-tier academic standing maintaining a 9.0/10.0 CGPA throughout rigorous engineering coursework.',
-      'Core Coursework: Data Structures & Algorithms, Database Management Systems, Operating Systems, Computer Networks, Object-Oriented Software Engineering, Machine Learning, and Cloud Computing.',
-      'Demonstrated project leadership as lead developer on multiple multi-member capstones spanning full-stack architectures and embedded IoT systems.',
-    ],
+    degree: 'Bachelor of Technology (BTech)',
+    fieldOfStudy: 'Information Technology',
+    // LinkedIn lists only the end year; start date, month, and CGPA are not displayed.
+    graduationYear: '2028',
+    period: 'Expected Graduation: 2028',
+    status: 'BTech IT Student, Class of 2028',
   },
 ]
 

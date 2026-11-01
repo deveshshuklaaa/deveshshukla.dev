@@ -17,12 +17,12 @@ export default function About() {
           {/* Narrative & Background */}
           <div className="about-text-column">
             <p className="lead-paragraph">
-              I am a final-year Information Technology student at{' '}
-              <strong className="text-highlight">{personalInfo.college}</strong> in Mumbai, maintaining
-              a <strong className="text-highlight">9.0 / 10.0 CGPA</strong>.
+              I am an {personalInfo.fieldOfStudy} student at{' '}
+              <strong className="text-highlight">{personalInfo.college}</strong> in Mumbai,
+              part of the <strong className="text-highlight">Class of {personalInfo.graduationYear}</strong>.
             </p>
             <p>
-              My engineering approach bridges machine learning models and production software systems. In real-world applications, an ML model is only as useful as the data pipeline supplying it and the backend architecture serving it. I enjoy building the entire loop: from low-level sensor telemetry (ESP32/MQTT) and normalized databases (PostgreSQL) to computer vision pipelines and modern reactive web dashboards.
+              My engineering approach bridges machine learning models and production software systems. In real-world applications, an ML model is only as useful as the data pipeline supplying it and the backend architecture serving it. I enjoy building the entire loop: from ESP32 pump control in SmartSpray and normalized databases (PostgreSQL) to computer vision pipelines and modern reactive web dashboards.
             </p>
             <p>
               Rather than relying on automated auto-ML or surface-level tutorials, I focus on the underlying mechanics: why a specific database isolation level is required for transactional inventory depletion, how to avoid inter-subject data leakage during temporal LSTM evaluation, or how to isolate ephemeral challenge containers with resource clamps.
@@ -32,15 +32,15 @@ export default function About() {
             <div className="about-quick-specs">
               <div className="spec-row">
                 <span className="spec-label">Degree</span>
-                <span className="spec-value">Bachelor of Technology (B.Tech) in Information Technology</span>
+                <span className="spec-value">{personalInfo.degree}</span>
               </div>
               <div className="spec-row">
                 <span className="spec-label">Institution</span>
-                <span className="spec-value">K. J. Somaiya Institute of Technology, Mumbai</span>
+                <span className="spec-value">{personalInfo.college}, Mumbai</span>
               </div>
               <div className="spec-row">
                 <span className="spec-label">Timeline & Standing</span>
-                <span className="spec-value">Class of 2026 • CGPA: 9.0 / 10.0</span>
+                <span className="spec-value">{personalInfo.educationStatus}</span>
               </div>
               <div className="spec-row">
                 <span className="spec-label">Primary Stack</span>
@@ -67,7 +67,7 @@ export default function About() {
 
             <div className="about-cta-box">
               <div className="cta-box-content">
-                <span className="cta-box-title">Evaluating candidates for 2026?</span>
+                <span className="cta-box-title">Looking for an engineering collaborator?</span>
                 <p className="cta-box-desc">
                   Available for full-time Software Engineer, Backend Engineer, and applied ML roles.
                 </p>
