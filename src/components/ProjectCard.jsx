@@ -1,98 +1,37 @@
-import Icon from './Icon'
-import Badge from './Badge'
-
-export default function ProjectCard({ project, index }) {
+export default function ProjectCard({ project, index, presentation, hidden }) {
+  const p = presentation
   return (
-    <article className="project-card" id={`project-${project.id}`}>
-      {/* Top Header Row */}
-      <div className="project-card__header">
-        <div className="project-card__meta">
-          <span className="project-card__index">0{index + 1}</span>
-          <span className="project-card__category">{project.category}</span>
-          <span className="project-card__status">{project.status}</span>
-        </div>
-
-        <div className="project-card__links">
-          {project.repoUrl ? (
-            <a
-              href={project.repoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="project-link"
-              aria-label={`View ${project.title} source code on GitHub`}
-            >
-              <Icon name="github" size={16} />
-              <span>Source Code</span>
-              <Icon name="arrowUpRight" size={13} />
-            </a>
-          ) : (
-            <span className="project-link project-link--muted">
-              <span>Prototype / In-House</span>
-            </span>
-          )}
-        </div>
-      </div>
-
-      {/* Main Title & Tagline */}
-      <div className="project-card__heading">
-        <h3 className="project-card__title">{project.title}</h3>
-        <p className="project-card__tagline">{project.tagline}</p>
-      </div>
-
-      {/* Structured Problem & Solution Grid */}
-      <div className="project-card__breakdown">
-        <div className="breakdown-block">
-          <h4 className="breakdown-label">
-            <span className="label-icon">›</span> The Problem
-          </h4>
-          <p className="breakdown-text">{project.problem}</p>
-        </div>
-
-        <div className="breakdown-block">
-          <h4 className="breakdown-label">
-            <span className="label-icon">›</span> What I Built
-          </h4>
-          <p className="breakdown-text">{project.whatBuilt}</p>
-        </div>
-      </div>
-
-      {/* Key Technical Decisions (Why this tech / architecture) */}
-      <div className="project-card__decisions">
-        <h4 className="decisions-title">Key Engineering Decisions:</h4>
-        <div className="decisions-grid">
-          {project.keyDecisions.map((item, idx) => (
-            <div key={idx} className="decision-item">
-              <span className="decision-name">{item.decision}</span>
-              <p className="decision-rationale">{item.rationale}</p>
+    <article id={`project-${project.id}`} className={`case-study case-study--${p.id} ${p.dark ? 'dark-section' : ''}`} aria-labelledby={`title-${project.id}`} hidden={hidden}>
+      <div className="shell case-inner">
+        <p className="eyebrow">0{index + 1} / {p.category}</p>
+        <div className="case-composition">
+          <div className="case-narrative">
+            <h3 id={`title-${project.id}`}>{p.title.split('\n').map((line, i) => <span key={line}>{i > 0 && <br />}{line}</span>)}</h3>
+            <p>{p.summary}</p>
+            <div className="case-problem"><h4 className="meta">The challenge</h4><p className="small muted">{p.problem}</p></div>
+            <div className="case-built"><h4 className="meta">What I built</h4><p>{p.built}</p></div>
+            <p className="meta case-tech">{p.tech}</p>
+            <a className="text-link" href={project.repoUrl} target="_blank" rel="noreferrer" aria-label={`View ${project.title} source on GitHub`}>View {project.id === 'cyberlabx' ? 'repository' : 'source on GitHub'} <span aria-hidden="true">↗</span></a>
+          </div>
+          <figure className="system-study" aria-label={`${project.title} architecture and validation`}>
+            <p className="meta">System study / 0{index + 1}</p>
+            <ol className="pipeline">{p.steps.map((step, i) => <li key={step}><span className="meta" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span><span>{step}</span></li>)}</ol>
+            <figcaption className="meta">{p.caption}</figcaption>
+            <div className="study-result"><p className="result-value">{p.metric}</p><p className="small muted">{p.metricLabel}</p>
+              {project.id === 'haemophilia-exercise-analysis' && <p className="small muted">Full 34-feature model; cohort cross-validation. Research prototype, not a medical diagnostic claim.</p>}
             </div>
-          ))}
+            {project.id === 'smart-spray' && <div className="control-modes">{[['AUTO', 'Vision-triggered'], ['ASSISTED', 'Operator confirms'], ['MANUAL', 'Direct override']].map(([mode, description]) => <div key={mode}><p className="eyebrow">{mode}</p><p className="small">{description}</p></div>)}</div>}
+            {project.id === 'cyberlabx' && <div className="isolation-boundary"><p className="meta">Per-session boundary</p><ul className="small"><li>Isolated bridge network</li><li>CPU & RAM quotas</li><li>Abandoned-session cleanup</li></ul></div>}
+          </figure>
         </div>
-      </div>
-
-      {/* Empirical Metric Callout */}
-      {project.metric && (
-        <div className="project-card__metric-box">
-          <div className="metric-header">
-            <span className="metric-tag">{project.metric.label}</span>
-            {project.metric.qualification && (
-              <span className="metric-qualification">({project.metric.qualification})</span>
-            )}
+        <details className="engineering-notes">
+          <summary><span>Engineering notes <span className="expand-mark" aria-hidden="true">+</span></span><span className="meta">{p.note}</span></summary>
+          <div className="notes-content">
+            <div className="decisions">{project.keyDecisions.map(decision => <section key={decision.decision}><h4>{decision.decision}</h4><p className="small muted">{decision.rationale}</p></section>)}</div>
+            <div className="original-validation"><h4>{project.metric.label}</h4><p>{project.metric.value}</p><p className="small muted">{project.metric.qualification}</p></div>
+            <p className="meta">Full stack / {project.technologies.join(' / ')}</p>
           </div>
-          <div className="metric-body">
-            <code className="metric-code">{project.metric.value}</code>
-          </div>
-        </div>
-      )}
-
-      {/* Tech Stack Footer */}
-      <div className="project-card__footer">
-        <div className="project-card__tech">
-          {project.technologies.map((tech) => (
-            <Badge key={tech} variant="tech">
-              {tech}
-            </Badge>
-          ))}
-        </div>
+        </details>
       </div>
     </article>
   )

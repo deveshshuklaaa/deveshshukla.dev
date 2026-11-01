@@ -117,7 +117,7 @@ export const projects = [
     category: 'Distributed Systems & Security',
     filterTag: 'fullstack',
     featured: true,
-    repoUrl: null,
+    repoUrl: 'https://github.com/deveshshuklaaa/CyberLabX',
     status: 'Full-Stack Platform / Academic Project',
     problem:
       'Hands-on security training requires each student to have an isolated, non-interfering environment to practice exploits and defense mechanisms without risking the host server or affecting other learners.',
