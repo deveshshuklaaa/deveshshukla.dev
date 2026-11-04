@@ -1,81 +1,14 @@
-import Icon from '../components/Icon'
 import { educationData, experienceData } from '../data/education'
 
 export default function Education() {
+  const education = educationData[0]
   return (
-    <section className="section" id="education">
-      <div className="section-container">
-        <div className="section-header">
-          <span className="section-eyebrow">Academic & Practical Foundation</span>
-          <h2 className="section-title">Education & Internship Experience</h2>
-          <p className="section-subtitle">
-            Strong theoretical computer science coursework paired with hands-on software development in institutional environments.
-          </p>
-        </div>
-
-        <div className="timeline-grid">
-          {/* Education Column */}
-          <div className="timeline-column">
-            <div className="timeline-column__header">
-              <div className="timeline-header-icon">
-                <Icon name="graduationCap" size={20} />
-              </div>
-              <h3 className="timeline-column__title">Education</h3>
-            </div>
-
-            <div className="timeline-cards">
-              {educationData.map((edu, idx) => (
-                <div key={idx} className="timeline-card">
-                  <div className="timeline-card__top">
-                    <span className="timeline-period">{edu.period}</span>
-                  </div>
-
-                  <h4 className="timeline-role">{edu.degree}, {edu.fieldOfStudy}</h4>
-                  <p className="timeline-org">
-                    <Icon name="mapPin" size={14} />
-                    <span>{edu.institution}, {edu.location}</span>
-                  </p>
-                  <p className="timeline-status-sub">{edu.status}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Experience / Internship Column */}
-          <div className="timeline-column">
-            <div className="timeline-column__header">
-              <div className="timeline-header-icon">
-                <Icon name="briefcase" size={20} />
-              </div>
-              <h3 className="timeline-column__title">Work Experience</h3>
-            </div>
-
-            <div className="timeline-cards">
-              {experienceData.map((exp, idx) => (
-                <div key={idx} className="timeline-card">
-                  <div className="timeline-card__top">
-                    <span className="timeline-period">{exp.period}</span>
-                    <span className="timeline-badge timeline-badge--intern">{exp.type}</span>
-                  </div>
-
-                  <h4 className="timeline-role">{exp.role}</h4>
-                  <p className="timeline-org">
-                    <Icon name="mapPin" size={14} />
-                    <span>{exp.organization}, {exp.location}</span>
-                  </p>
-
-                  <ul className="timeline-details">
-                    {exp.highlights.map((item, dIdx) => (
-                      <li key={dIdx} className="timeline-bullet">
-                        <span className="bullet">›</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
+    <section className="section education-section" id="education" aria-labelledby="education-title">
+      <div className="shell section-inner">
+        <p className="eyebrow">04 / Foundation</p><h2 id="education-title">Learning. Then building.</h2>
+        <div className="education-composition">
+          <div className="education-record"><p className="meta">Education / {education.period}</p><h3>K. J. Somaiya<br />Institute of Technology</h3><p>{education.degree}<br />{education.fieldOfStudy}</p><p className="meta">{education.status}</p></div>
+          {experienceData.map(experience => <div className="experience-record" key={experience.role}><p className="meta">Experience / {experience.period}</p><h3>{experience.role}</h3><p>{experience.organization}</p><p className="small muted">Contributed to internal web applications across front-end, back-end, testing, and database integration.</p></div>)}
         </div>
       </div>
     </section>

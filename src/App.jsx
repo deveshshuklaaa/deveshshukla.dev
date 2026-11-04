@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './sections/Hero'
 import About from './sections/About'
@@ -9,13 +10,14 @@ import Footer from './components/Footer'
 import './App.css'
 
 export default function App() {
+  const [filter, setFilter] = useState('all')
   return (
     <div className="app-container">
       <Navbar />
-      <main id="main-content">
-        <Hero />
+      <main id="main-content" tabIndex={-1}>
+        <Hero onProjectSelect={() => setFilter('all')} />
         <About />
-        <Projects />
+        <Projects filter={filter} onFilterChange={setFilter} />
         <Skills />
         <Education />
         <Contact />

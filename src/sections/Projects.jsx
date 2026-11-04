@@ -1,78 +1,25 @@
-import { useState } from 'react'
 import ProjectCard from '../components/ProjectCard'
 import { projects } from '../data/projects'
+import { projectPresentation } from '../data/presentation'
 
-export default function Projects() {
-  const [filter, setFilter] = useState('all')
-
-  const filterOptions = [
-    { id: 'all', label: 'All Projects', count: projects.length },
-    {
-      id: 'cv-ml',
-      label: 'Computer Vision & ML',
-      count: projects.filter((p) => p.filterTag === 'cv-ml').length,
-    },
-    {
-      id: 'fullstack',
-      label: 'Full-Stack & Systems',
-      count: projects.filter((p) => p.filterTag === 'fullstack').length,
-    },
-  ].filter((option) => option.count > 0)
-
-  const filteredProjects = projects.filter((project) => {
-    if (filter === 'all') return true
-    return project.filterTag === filter
-  })
+export default function Projects({ filter, onFilterChange }) {
+  const options = [{ id: 'all', label: 'All work' }, { id: 'cv-ml', label: 'Vision & ML' }, { id: 'fullstack', label: 'Full-stack' }]
+    .map(item => ({ ...item, count: projects.filter(p => item.id === 'all' || p.filterTag === item.id).length }))
+    .filter(item => item.count > 0)
+  const visible = projects.filter(project => filter === 'all' || project.filterTag === filter)
 
   return (
-    <section className="section" id="projects">
-      <div className="section-container">
-        <div className="section-header">
-          <span className="section-eyebrow">Technical Portfolio</span>
-          <h2 className="section-title">Featured Projects & Systems</h2>
-          <p className="section-subtitle">
-            Engineered systems demonstrating relational data modeling, temporal deep learning architectures, embedded hardware control, and containerized deployment.
-          </p>
+    <section id="projects" aria-labelledby="work-title">
+      <div className="section work-heading"><div className="shell section-inner">
+        <p className="eyebrow">02 / Selected work</p>
+        <h2 id="work-title">Four systems.<br />Four different challenges.</h2>
+        <div className="filters" role="group" aria-label="Project filters">
+          {options.map(option => <button key={option.id} type="button" className="filter-button" aria-pressed={filter === option.id} onClick={() => onFilterChange(option.id)}>{option.label} / {String(option.count).padStart(2, '0')}</button>)}
         </div>
-
-        {/* Filter Bar with Counts */}
-        <div className="filter-bar" role="tablist" aria-label="Project category filters">
-          {filterOptions.map((opt) => (
-            <button
-              key={opt.id}
-              type="button"
-              role="tab"
-              aria-selected={filter === opt.id}
-              className={`filter-btn ${filter === opt.id ? 'filter-btn--active' : ''}`}
-              onClick={() => setFilter(opt.id)}
-            >
-              <span>{opt.label}</span>
-              <span className="filter-count">{opt.count}</span>
-            </button>
-          ))}
-        </div>
-
-        {/* Projects Cards List */}
-        <div className="projects-grid">
-          {filteredProjects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
-          ))}
-        </div>
-
-        {/* Footer Note */}
-        <div className="projects-footer-note">
-          <p>
-            Explore all personal code repositories, experiments, and open-source contributions on{' '}
-            <a
-              href="https://github.com/deveshshuklaaa"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-link"
-            >
-              GitHub (@deveshshuklaaa)
-            </a>.
-          </p>
-        </div>
+        <p className="sr-only" role="status">Showing {visible.length} projects</p>
+      </div></div>
+      <div className="case-studies">
+        {projects.map((project, index) => <ProjectCard key={project.id} project={project} index={index} presentation={projectPresentation.find(p => p.id === project.id)} hidden={!visible.includes(project)} />)}
       </div>
     </section>
   )

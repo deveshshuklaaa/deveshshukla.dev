@@ -1,46 +1,33 @@
-# Devesh Shukla — Developer Portfolio
+# Devesh Shukla — Engineering Index
 
-Personal engineering portfolio website for **Devesh Shukla**, Software & AI/ML Developer.
+An editorial portfolio for software, applied machine learning, and embedded systems. Built with React 19, Vite, and plain CSS.
 
-Live site: [https://deveshshukla.dev](https://deveshshukla.dev)
+- Production: [deveshshukla.dev](https://deveshshukla.dev)
+- [Owner-only V4 review preview](https://devesh-engineering-index-v4-review.dapperopal.chatgpt.site)
+- [Figma design and responsive frames](https://www.figma.com/design/huKE3nsyUk8P4zBRyVLBlS?node-id=4-2)
+- [Design decisions, asset audit, and QA](docs/design/README.md)
 
-## Overview
+## Selected work
 
-A fast, lightweight, and responsive developer portfolio engineered with a focus on real systems, technical depth, and clean visual hierarchy.
+- **Haemophilia Exercise Analysis** — pose kinematics, temporal LSTM modeling, and strict LOSO validation.
+- **StockBill** — Django REST Framework, React, PostgreSQL, and transactional inventory and billing.
+- **SmartSpray** — YOLO, FastAPI, and ESP32 pump control across AUTO, ASSISTED, and MANUAL modes.
+- **CyberLabX** — isolated Docker challenge environments with programmatic container lifecycles.
 
-### Featured Projects
+## Development
 
-- **Haemophilia Exercise Analysis**: Pose-derived kinematic feature extraction, temporal modeling (LSTM), and strict Leave-One-Subject-Out (LOSO) evaluation.
-- **StockBill**: Full-stack FMCG inventory and billing software (Django REST Framework, React, PostgreSQL, Docker).
-- **SmartSpray**: AI-assisted agricultural spraying prototype combining YOLO detection, FastAPI, and ESP32 pump control with tri-modal operation.
-- **CyberLabX**: Virtual cybersecurity laboratory with dynamic Docker challenge provisioning via dockerode.
-
-## Tech Stack
-
-- **Core**: React 19, Vite
-- **Styling**: Vanilla CSS (Custom Design System, Dark Mode, Responsive)
-- **Deployment**: GitHub Pages via GitHub Actions
-- **Custom Domain**: `deveshshukla.dev`
-
-## Local Development
-
-```bash
-# Install dependencies
-npm install
-
-# Run local development server
+```sh
+npm ci
 npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build locally
-npm run preview
-
-# Run ESLint
 npm run lint
+npm run build
+npm run preview
 ```
 
-## Continuous Deployment
+Local fonts and their licences live in `public/fonts`. The resume remains at `/devesh-shukla-resume.pdf`.
 
-Deployment is automated via GitHub Actions on push to `main` (`.github/workflows/deploy.yml`).
+## Review workflow
+
+The V4 redesign lives on `design/figma-portfolio-redesign` pending owner review. The preview workflow runs lint and build and uploads the static bundle as a GitHub Actions artifact. It cannot deploy the live domain.
+
+Production continues to deploy through the existing GitHub Pages workflow on pushes to `main`. Do not merge the redesign without owner approval.
